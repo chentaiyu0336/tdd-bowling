@@ -1,3 +1,4 @@
+import javafx.beans.binding.When;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -27,5 +28,16 @@ public class BowlingGameTest {
         Integer point=bowlingGame.cal_points(haveStrikeOrSpare);
         //Then
         assertEquals("164",point.toString());
+    }
+    
+    @Test
+    void should_have_strike_last_round() {
+        //Given
+        BowlingGame bowlingGame=new BowlingGame();
+        List<Integer> strikeLastRound= Arrays.asList(1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,5,2);
+        //When
+        Integer point=bowlingGame.cal_points(strikeLastRound);
+        //Then
+        assertEquals("20",point.toString());
     }
 }
